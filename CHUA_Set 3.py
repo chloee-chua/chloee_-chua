@@ -152,7 +152,9 @@ def eta(first_stop, second_stop, route_map):
 
     travel_time = 0
     current_stop = first_stop
-    
+    for (from_stop, to_stop) in route_map:
+        if current_stop == second_stop:
+            travel_time += route_map[(from_stop, to_stop)]["travel_time_mins"]
     while current_stop != second_stop:
         for (from_stop, to_stop) in route_map:
             if from_stop == current_stop:
